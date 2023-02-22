@@ -1,0 +1,10 @@
+<div *ngIf="todo">
+  <h2>{{ todo.name | uppercase }}</h2>
+  <div>id: {{ todo.id }}</div>
+  <div>
+    <p>{{ todo.details }}</p>
+  </div>
+  <div>Is Completed: {{ todo.isComplete }}</div>
+</div>
+
+<button type="button" (click)="goBack()">go back</button>

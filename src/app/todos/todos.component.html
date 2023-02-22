@@ -1,0 +1,23 @@
+<div>
+  <input id="new-todo" #todoName placeholder="Add Todo Item..."  maxlength="50"/>
+  <button
+    type="button"
+    class="add-button"
+    (click)="add(todoName.value); todoName.value = ''"
+  >
+    Add
+  </button>
+</div>
+<ul>
+  <li class="todo-item" *ngFor="let todos of todos">
+    <a routerLink="/detail/{{ todos.id }}" >{{ todos.name }}</a>
+    <button
+      type="button"
+      class="delete"
+      title="delete todo"
+      (click)="delete(todos)"
+    >
+      x
+    </button>
+  </li>
+</ul>
