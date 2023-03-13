@@ -20,12 +20,13 @@ export class TodosComponent implements OnInit {
     this.todoService.getTodos().subscribe((todos) => (this.todos = todos));
   }
 
-  add(name: string): void {
+  add(name: string, details: string): void {
     name = name.trim();
+    details = details.trim();
     if (!name) {
       return;
     }
-    this.todoService.addTodo({ name } as Todo).subscribe((todo) => {
+    this.todoService.addTodo({ name, details } as Todo).subscribe((todo) => {
       this.todos.push(todo);
     });
   }

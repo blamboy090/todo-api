@@ -1,11 +1,11 @@
 <div>
   <input id="new-todo" #todoName placeholder="Add Todo Item..."  maxlength="50"/>
-  <!-- <textarea id="todo-details" #todoDetails placeholder="Add details..." required maxlength="200" rows="4" cols="50">
-  </textarea> -->
+  <textarea id="todo-details" #todoDetails placeholder="Add details..." required maxlength="200" rows="1" cols="25">
+  </textarea>
   <button
     type="button"
     class="add-button"
-    (click)="add(todoName.value); todoName.value = ''"
+    (click)="add(todoName.value, todoDetails.value); todoName.value = ''"
   >
     Add
   </button>
