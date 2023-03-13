@@ -1,18 +1,37 @@
 <div>
-  <input id="new-todo" #todoName placeholder="Add Todo Item..."  maxlength="50"/>
-  <textarea id="todo-details" #todoDetails placeholder="Add details..." required maxlength="200" rows="1" cols="25">
-  </textarea>
-  <button
-    type="button"
-    class="add-button"
-    (click)="add(todoName.value, todoDetails.value); todoName.value = ''"
-  >
-    Add
-  </button>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Todo</mat-label>
+      <input id="new-todo" #todoName matInput placeholder="Ex. Wash dishes" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Details</mat-label>
+      <textarea
+        id="todo-details"
+        #todoDetails
+        matInput
+        placeholder="Ex. Soak pans in hot water..."
+      ></textarea>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      type="button"
+      class="add-button"
+      (click)="
+        add(todoName.value, todoDetails.value);
+        todoName.value = '';
+        todoDetails.value = ''
+      "
+    >
+      Add
+    </button>
+  </form>
 </div>
 <ul>
   <li class="todo-item" *ngFor="let todos of todos">
-    <a routerLink="/detail/{{ todos.id }}" >{{ todos.name }}</a>
+    <a routerLink="/detail/{{ todos.id }}">{{ todos.name }}</a>
     <button
       type="button"
       class="delete"
