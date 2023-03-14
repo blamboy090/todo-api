@@ -1,4 +1,6 @@
 <mat-toolbar color="primary"
-  ><span>{{ title }}</span></mat-toolbar
+  ><span>{{ title }}</span>
+  <span class="example-spacer"></span>
+  <a mat-button [routerLink]="['/view']">View All</a></mat-toolbar
 >
 <router-outlet></router-outlet>

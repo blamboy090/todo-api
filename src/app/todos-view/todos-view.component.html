@@ -1,0 +1,38 @@
+<p>todos-view works!</p>
+
+<table mat-table [dataSource]="todos">
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let todo">
+      <a routerLink="/detail/{{ todo.id }}">{{ todo.name }}</a>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="difficulty">
+    <th mat-header-cell *matHeaderCellDef>Level</th>
+    <td mat-cell *matCellDef="let todo">{{ todo.difficulty }}</td>
+  </ng-container>
+  <ng-container matColumnDef="created">
+    <th mat-header-cell *matHeaderCellDef>Created</th>
+    <td mat-cell *matCellDef="let todo">
+      {{ todo.created | date : "medium" }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<button mat-raised-button color="accent" [routerLink]="['/']">Back</button>
+<!-- <ul>
+  <li class="todo-item" *ngFor="let todos of todos">
+    <a routerLink="/detail/{{ todos.id }}">{{ todos.name }}</a>
+    <button
+      type="button"
+      class="delete"
+      title="delete todo"
+      (click)="delete(todos)"
+    >
+      x
+    </button>
+  </li>
+</ul> -->

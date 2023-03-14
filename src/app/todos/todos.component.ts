@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../todo';
 import { TodoService } from '../todo.service';
-
+import { Difficulty } from '../todo';
 
 @Component({
   selector: 'app-todos',
@@ -10,6 +10,16 @@ import { TodoService } from '../todo.service';
 })
 export class TodosComponent implements OnInit {
   todos: Todo[] = [];
+  // createdDate = Date.prototype.toISOString();
+  createdDate = new Date();
+  dateConvert = this.createdDate.toISOString();
+  selected = 1;
+
+  // difficulty: Difficulty[] = [
+  //   { value: 1, viewValue: 'Mild' },
+  //   { value: 2, viewValue: 'Medium' },
+  //   { value: 3, viewValue: 'Spicy' },
+  // ];
 
   constructor(private todoService: TodoService) {}
 
@@ -21,15 +31,25 @@ export class TodosComponent implements OnInit {
     this.todoService.getTodos().subscribe((todos) => (this.todos = todos));
   }
 
-  add(name: string, details: string): void {
+  add(
+    name: string,
+    details: string,
+    created: string,
+    difficulty: number
+  ): void {
     name = name.trim();
     details = details.trim();
+    created = this.dateConvert;
+    difficulty = this.selected;
+
     if (!name) {
       return;
     }
-    this.todoService.addTodo({ name, details } as Todo).subscribe((todo) => {
-      this.todos.push(todo);
-    });
+    this.todoService
+      .addTodo({ name, details, created, difficulty } as Todo)
+      .subscribe((todo) => {
+        this.todos.push(todo);
+      });
   }
 
   delete(todo: Todo): void {

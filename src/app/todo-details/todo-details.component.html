@@ -5,6 +5,17 @@
     <p>{{ todo.details }}</p>
   </div>
   <div>Is Completed: {{ todo.isComplete }}</div>
+  <div>Created: {{ todo.created | date }}</div>
+  <div>Difficulty: {{ todo.difficulty }}</div>
+  <button
+    type="button"
+    class="delete"
+    title="delete todo"
+    (click)="delete(todo)"
+    routerLink="/view"
+  >
+    x
+  </button>
 </div>
 
 <button type="button" (click)="goBack()">go back</button>

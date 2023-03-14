@@ -14,13 +14,23 @@
         placeholder="Ex. Soak pans in hot water..."
       ></textarea>
     </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Select a level</mat-label
+      ><mat-select [(value)]="selected" required
+        ><mat-option value="1">Mild </mat-option
+        ><mat-option value="2">Spicy</mat-option
+        ><mat-option value="3">Inferno</mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <button
       mat-raised-button
       color="accent"
       type="button"
       class="add-button"
       (click)="
-        add(todoName.value, todoDetails.value);
+        add(todoName.value, todoDetails.value, dateConvert, selected);
         todoName.value = '';
         todoDetails.value = ''
       "
@@ -28,17 +38,5 @@
       Add
     </button>
   </form>
+  {{ createdDate | date }}
 </div>
-<ul>
-  <li class="todo-item" *ngFor="let todos of todos">
-    <a routerLink="/detail/{{ todos.id }}">{{ todos.name }}</a>
-    <button
-      type="button"
-      class="delete"
-      title="delete todo"
-      (click)="delete(todos)"
-    >
-      x
-    </button>
-  </li>
-</ul>

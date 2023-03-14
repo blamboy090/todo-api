@@ -9,6 +9,14 @@ import { Location } from '@angular/common';
   styleUrls: ['./todo-details.component.scss'],
 })
 export class TodoDetailsComponent {
+  todos: Todo[] = [];
+
+  constructor(
+    private route: ActivatedRoute,
+    private todoService: TodoService,
+    private location: Location
+  ) {}
+
   @Input() todo?: Todo;
   ngOnInit(): void {
     this.getTodo();
@@ -23,9 +31,8 @@ export class TodoDetailsComponent {
     this.location.back();
   }
 
-  constructor(
-    private route: ActivatedRoute,
-    private todoService: TodoService,
-    private location: Location
-  ) {}
+  delete(todo: Todo): void {
+    this.todos = this.todos.filter((t) => t !== todo);
+    this.todoService.deleteTodo(todo.id).subscribe();
+  }
 }

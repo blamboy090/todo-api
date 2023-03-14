@@ -12,9 +12,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { TodosViewComponent } from './todos-view/todos-view.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
-  declarations: [AppComponent, TodosComponent, TodoDetailsComponent],
+  declarations: [
+    AppComponent,
+    TodosComponent,
+    TodoDetailsComponent,
+    TodosViewComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +34,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
+    MatTableModule,
+    MatDatepickerModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
