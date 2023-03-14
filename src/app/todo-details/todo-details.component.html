@@ -1,21 +1,31 @@
-<div *ngIf="todo">
+<div class="details" *ngIf="todo">
   <h2>{{ todo.name | uppercase }}</h2>
   <div>id: {{ todo.id }}</div>
   <div>
     <p>{{ todo.details }}</p>
   </div>
   <div>Is Completed: {{ todo.isComplete }}</div>
-  <div>Created: {{ todo.created | date }}</div>
+  <div>Created: {{ todo.created | date : "medium" }}</div>
   <div>Difficulty: {{ todo.difficulty }}</div>
   <button
+    button
+    mat-raised-button
+    color="warn"
     type="button"
     class="delete"
     title="delete todo"
     (click)="delete(todo)"
-    routerLink="/view"
+    (click)="goBack()"
   >
-    x
+    delete todo
+  </button>
+  <button mat-raised-button color="accent" type="button" (click)="goBack()">
+    go back
   </button>
 </div>
 
-<button type="button" (click)="goBack()">go back</button>
+<div>
+  <p>{{ convertCurrentDate }}</p>
+  <p>{{ currentDate }}</p>
+  <p>{{refCreatedDate}}</p>
+</div>

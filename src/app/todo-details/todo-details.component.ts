@@ -10,7 +10,12 @@ import { Location } from '@angular/common';
 })
 export class TodoDetailsComponent {
   todos: Todo[] = [];
+  currentDate = new Date();
+  convertCurrentDate = this.currentDate.toISOString();
+ 
+  
 
+  // elapsedTime = (this.createdDate - this.convertCurrentDate)
   constructor(
     private route: ActivatedRoute,
     private todoService: TodoService,
@@ -21,6 +26,8 @@ export class TodoDetailsComponent {
   ngOnInit(): void {
     this.getTodo();
   }
+
+  refCreatedDate = this.todo?.created;
 
   getTodo(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));

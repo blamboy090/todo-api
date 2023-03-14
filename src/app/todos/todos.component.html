@@ -16,8 +16,10 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <mat-label>Select a level</mat-label
-      ><mat-select [(value)]="selected" required
+      <mat-select
+        [(value)]="selected"
+        required
+        placeholder="Select a Difficulty"
         ><mat-option value="1">Mild </mat-option
         ><mat-option value="2">Spicy</mat-option
         ><mat-option value="3">Inferno</mat-option>
@@ -32,11 +34,11 @@
       (click)="
         add(todoName.value, todoDetails.value, dateConvert, selected);
         todoName.value = '';
-        todoDetails.value = ''
+        todoDetails.value = '';
+        selected = 0
       "
     >
       Add
     </button>
   </form>
-  {{ createdDate | date }}
 </div>
