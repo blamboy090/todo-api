@@ -14,7 +14,7 @@ export class TodoDetailsComponent {
   currentDate = new Date();
   convertCurrentDate = this.currentDate.toISOString();
   todo?: Todo;
-  timeElapsed = 0;
+  timeElapsed = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -22,10 +22,8 @@ export class TodoDetailsComponent {
     private location: Location
   ) {}
 
-  // @Input() todo?: Todo;
   ngOnInit(): void {
     this.getTodo();
-    // this.calculate();
   }
 
   getTodo(): void {
@@ -49,27 +47,20 @@ export class TodoDetailsComponent {
   }
 
   calc(x: Todo) {
-    // this.todo?.created ? !null
-
     const d1: any = new Date(this.convertCurrentDate);
 
     const d2: any = new Date(x?.created);
     var diff = d1 - d2;
-    if (diff > 60e3) console.log(Math.floor(diff / 60e3), 'minutes ago');
-    else console.log(Math.floor(diff / 1e3), 'seconds ago');
-    // call function to format
-    this.timeElapsed = Math.floor(diff / 3.6e6);
-    // this.timeElapsed = this.toHoursAndMinutes(diff);
-    console.log(this.timeElapsed);
+    this.toReadableTime(diff);
   }
 
-  // toHoursAndMinutes(diff: number) {
-  //   const totalMinutes = Math.floor(diff / 60);
-
-  //   const seconds = diff % 60;
-  //   const hours = Math.floor(totalMinutes / 60);
-  //   const minutes = totalMinutes % 60;
-
-  //   return { h: hours, m: minutes, s: seconds };
-  // }
+  toReadableTime(diff: number) {
+    if (diff < 3.6e6) {
+      this.timeElapsed = Math.floor(diff / 60e3).toString() + ' minutes';
+    } else if (diff < 8.64e7) {
+      this.timeElapsed = Math.floor(diff / 3.6e6).toString() + ' hours';
+    } else {
+      this.timeElapsed = Math.floor(diff / 8.64e7).toString() + ' days';
+    }
+  }
 }
