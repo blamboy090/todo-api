@@ -1,31 +1,40 @@
-<div class="details" *ngIf="todo">
-  <h2>{{ todo.name | uppercase }}</h2>
-  <div>id: {{ todo.id }}</div>
-  <div>
-    <p>{{ todo.details }}</p>
+<mat-card class="card">
+  <div class="details" *ngIf="todo">
+    <mat-card-header>
+      <h2>{{ todo.name | uppercase }}</h2>
+    </mat-card-header>
+    <mat-card-content>
+      <p>id: {{ todo.id }}</p>
+      <p>{{ todo.details }}</p>
+      <p>Is Completed: {{ todo.isComplete }}</p>
+      <p>Created: {{ todo.created | date : "medium" }}</p>
+      <p>Difficulty: {{ todo.difficulty }}</p>
+      <p>Time Elapsed: {{ timeElapsed }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        button
+        mat-raised-button
+        color="warn"
+        type="button"
+        class="delete"
+        title="delete todo"
+        (click)="delete(todo)"
+        (click)="goBack()"
+      >
+        Delete Todo
+      </button>
+      <button mat-raised-button color="accent" type="button" (click)="goBack()">
+        Go Back
+      </button>
+    </mat-card-actions>
   </div>
-  <div>Is Completed: {{ todo.isComplete }}</div>
-  <div>Created: {{ todo.created | date : "medium" }}</div>
-  <div>Difficulty: {{ todo.difficulty }}</div>
-  <button
-    button
-    mat-raised-button
-    color="warn"
-    type="button"
-    class="delete"
-    title="delete todo"
-    (click)="delete(todo)"
-    (click)="goBack()"
-  >
-    delete todo
-  </button>
-  <button mat-raised-button color="accent" type="button" (click)="goBack()">
-    go back
-  </button>
-</div>
+</mat-card>
+<!-- <button (click)="calc()"></button> -->
 
-<div>
+<!-- <div>
+  <h2>Current Time</h2>
   <p>{{ convertCurrentDate }}</p>
-  <p>{{ currentDate }}</p>
-  <p>{{refCreatedDate}}</p>
-</div>
+  <h2>More time</h2>
+  <p>{{ timeElapsed }}</p>
+</div> -->

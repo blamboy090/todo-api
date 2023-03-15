@@ -16,6 +16,7 @@ import { MatTableModule } from '@angular/material/table';
 import { TodosViewComponent } from './todos-view/todos-view.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatTableModule,
     MatDatepickerModule,
     MatSelectModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
