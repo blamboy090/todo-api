@@ -8,6 +8,11 @@
         <a routerLink="/detail/{{ todo.id }}">{{ todo.name }}</a>
       </td>
     </ng-container>
+    <!--- Is Complete Column -->
+    <ng-container matColumnDef="isComplete">
+      <th mat-header-cell *matHeaderCellDef>Is Complete</th>
+      <td mat-cell *matCellDef="let todo">{{ todo.isComplete }}</td>
+    </ng-container>
     <!--- Difficulty Column -->
     <ng-container matColumnDef="difficulty">
       <th mat-header-cell *matHeaderCellDef>Difficulty</th>

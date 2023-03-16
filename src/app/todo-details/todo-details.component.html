@@ -4,10 +4,9 @@
       <h2>{{ todo.name | uppercase }}</h2>
     </mat-card-header>
     <mat-card-content>
-      <p>id: {{ todo.id }}</p>
-      <p>{{ todo.details }}</p>
+      <p>Details: {{ todo.details }}</p>
       <p>Is Completed: {{ todo.isComplete }}</p>
-      <p>Created: {{ todo.created | date : "medium" }}</p>
+      <p>Created: {{ todo.created | date : "short" }}</p>
       <p>Difficulty: {{ todo.difficulty }}</p>
       <p>Time Elapsed: {{ timeElapsed }}</p>
     </mat-card-content>
@@ -22,7 +21,18 @@
         (click)="delete(todo)"
         (click)="goBack()"
       >
-        Delete Todo
+        Delete
+      </button>
+      <button
+        button
+        mat-raised-button
+        color="primary"
+        type="button"
+        class="edit"
+        title="edit todo"
+        routerLink="/edit/{{ todo.id }}">
+      
+        Edit
       </button>
       <button mat-raised-button color="accent" type="button" (click)="goBack()">
         Go Back

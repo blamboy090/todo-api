@@ -1,0 +1,67 @@
+<div *ngIf="todo" class="example-form">
+  <mat-card-header>
+    <h2>{{ todo.name | uppercase }}</h2>
+  </mat-card-header>
+  <mat-card-content>
+    <h3>
+      Created: {{ todo.created | date : "short" }}
+      <!-- <input [(ngModel)]="todo.created"/> -->
+    </h3>
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="todo.name" placeholder="Name" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Details</mat-label>
+      <textarea
+        matInput
+        [(ngModel)]="todo.details"
+        placeholder="Name"
+      ></textarea>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-select
+        [(value)]="todo.difficulty"
+        required
+        placeholder="{{ todo.difficulty }}"
+        ><mat-option value="1">Mild </mat-option
+        ><mat-option value="2">Spicy</mat-option
+        ><mat-option value="3">Inferno</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-slide-toggle [(ngModel)]="todo.isComplete"
+      >Is Complete</mat-slide-toggle
+    >
+
+   
+  </mat-card-content>
+  <div>
+  <button
+    mat-raised-button
+    (click)="update(todo)"
+    (click)="goBack()"
+    *ngIf="todo.id"
+  >
+    Update
+  </button>
+</div>
+</div>
+
+<!-- <div *ngIf="todo">
+  <h1>Edit Todo</h1>
+  <form>
+    <label>Id:</label>
+    <input name="id"  #todoId value="{{ todo.id }}" />
+    <label>Title:</label>
+    <input name="title" #todoName value="{{ todo.name }}" />
+    <label>Details:</label>
+    <textarea name="'details" #todoDetails value="{{ todo.details }}"> </textarea>
+    <label>Is complete</label>
+    <input #isComplete value="{{ todo.isComplete }}" />
+    <label>Difficulty</label>
+    <input #difficulty value="{{ todo.difficulty }}" />
+    <p>{{ todo.created }}</p>
+    <button mat-raised-button (click)="update()">Update</button>
+  </form>
+</div> -->

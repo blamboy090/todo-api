@@ -10,7 +10,7 @@ import { Todo } from '../todo';
 export class TodosViewComponent implements OnInit {
   todos: Todo[] = [];
   dataSource = this.todos;
-  displayedColumns: string[] = ['name', 'difficulty', 'created'];
+  displayedColumns: string[] = ['name', 'isComplete', 'difficulty', 'created'];
 
   constructor(private todoService: TodoService) {}
 

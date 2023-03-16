@@ -15,6 +15,7 @@ export class TodoDetailsComponent {
   convertCurrentDate = this.currentDate.toISOString();
   todo?: Todo;
   timeElapsed = '';
+  currentTodo = {}
 
   constructor(
     private route: ActivatedRoute,
@@ -46,6 +47,19 @@ export class TodoDetailsComponent {
     this.todoService.deleteTodo(todo.id).subscribe();
   }
 
+  update(): void {
+    console.log('Updated');
+  }
+
+  onEditClicked(id: number) {
+    //Get todo based on id
+    this.currentTodo = this.todoService.getTodo(id).subscribe((todo) => (this.todo = todo));
+console.log(this.currentTodo)
+    //Populate form with details
+
+    //change the button bvalue to update
+  }
+
   calc(x: Todo) {
     const d1: any = new Date(this.convertCurrentDate);
 
@@ -56,11 +70,11 @@ export class TodoDetailsComponent {
 
   toReadableTime(diff: number) {
     if (diff < 3.6e6) {
-      this.timeElapsed = Math.floor(diff / 60e3).toString() + ' minutes';
+      this.timeElapsed = Math.floor(diff / 60e3).toString() + ' minute(s)';
     } else if (diff < 8.64e7) {
-      this.timeElapsed = Math.floor(diff / 3.6e6).toString() + ' hours';
+      this.timeElapsed = Math.floor(diff / 3.6e6).toString() + ' hour(s)';
     } else {
-      this.timeElapsed = Math.floor(diff / 8.64e7).toString() + ' days';
+      this.timeElapsed = Math.floor(diff / 8.64e7).toString() + ' day(s)';
     }
   }
 }

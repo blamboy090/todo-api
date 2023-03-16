@@ -17,6 +17,8 @@ import { TodosViewComponent } from './todos-view/todos-view.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import { TodoEditComponent } from './todo-edit/todo-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { MatCardModule } from '@angular/material/card';
     TodosComponent,
     TodoDetailsComponent,
     TodosViewComponent,
+    TodoEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { MatCardModule } from '@angular/material/card';
     MatDatepickerModule,
     MatSelectModule,
     MatCardModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
