@@ -36,6 +36,7 @@ export class TodosComponent implements OnInit {
     difficulty = this.selected;
 
     if (!name) {
+      console.log("Name Required")
       return;
     }
     this.todoService
