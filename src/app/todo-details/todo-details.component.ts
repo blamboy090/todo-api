@@ -15,7 +15,7 @@ export class TodoDetailsComponent {
   convertCurrentDate = this.currentDate.toISOString();
   todo?: Todo;
   timeElapsed = '';
-  currentTodo = {}
+  currentTodo = {};
 
   constructor(
     private route: ActivatedRoute,
@@ -45,19 +45,6 @@ export class TodoDetailsComponent {
   delete(todo: Todo): void {
     this.todos = this.todos.filter((t) => t !== todo);
     this.todoService.deleteTodo(todo.id).subscribe();
-  }
-
-  update(): void {
-    console.log('Updated');
-  }
-
-  onEditClicked(id: number) {
-    //Get todo based on id
-    this.currentTodo = this.todoService.getTodo(id).subscribe((todo) => (this.todo = todo));
-console.log(this.currentTodo)
-    //Populate form with details
-
-    //change the button bvalue to update
   }
 
   calc(x: Todo) {

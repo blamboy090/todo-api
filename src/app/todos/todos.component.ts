@@ -10,16 +10,9 @@ import { Difficulty } from '../todo';
 })
 export class TodosComponent implements OnInit {
   todos: Todo[] = [];
-  // createdDate = Date.prototype.toISOString();
   createdDate = new Date();
   dateConvert = this.createdDate.toISOString();
-  selected = 1;
-
-  // difficulty: Difficulty[] = [
-  //   { value: 1, viewValue: 'Mild' },
-  //   { value: 2, viewValue: 'Medium' },
-  //   { value: 3, viewValue: 'Spicy' },
-  // ];
+  selected = 0;
 
   constructor(private todoService: TodoService) {}
 
