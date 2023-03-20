@@ -26,19 +26,28 @@
       </mat-select>
     </mat-form-field>
 
+    <mat-form-field class="example-full-width">
+      <mat-select [(value)]="selectedUser" required placeholder="User Id"
+        ><mat-option value="1">1 </mat-option
+        ><mat-option value="2">2</mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <button
       mat-raised-button
       color="accent"
       type="button"
       class="add-button"
       (click)="
-        add(todoName.value, todoDetails.value, dateConvert, selected);
+        add(todoName.value, todoDetails.value, dateConvert, selected, selectedUser);
         todoName.value = '';
         todoDetails.value = '';
-        selected = 0
+        selected = 0;
+        selectedUser = 0;
       "
     >
       Add
     </button>
+    {{selectedUser}}
   </form>
 </div>

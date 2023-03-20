@@ -20,6 +20,12 @@ export class TodoService {
     return this.http.get<Todo[]>(this.todosUrl);
   }
 
+    /** GET: todos from the server */
+  getByUser(userId: number): Observable<Todo[]> {
+      const url = `${this.todosUrl}/userId/${userId}`;
+      return this.http.get<Todo[]>(url);
+    }
+
   /** GET: todo by id */
   getTodo(id: number): Observable<Todo> {
     const url = `${this.todosUrl}/${id}`;
@@ -33,7 +39,11 @@ export class TodoService {
 
   /**PUT: update a todo */
   updateTodo(todo: Todo): Observable<Todo> {
-    return this.http.put<Todo>(this.todosUrl + `/${todo.id}`, todo, this.httpOptions)
+    return this.http.put<Todo>(
+      this.todosUrl + `/${todo.id}`,
+      todo,
+      this.httpOptions
+    );
   }
 
   /** DELETE: delete todo from the server */

@@ -13,6 +13,7 @@ export class TodosComponent implements OnInit {
   createdDate = new Date();
   dateConvert = this.createdDate.toISOString();
   selected = 0;
+  selectedUser = 0;
 
   constructor(private todoService: TodoService) {}
 
@@ -28,18 +29,20 @@ export class TodosComponent implements OnInit {
     name: string,
     details: string,
     created: string,
-    difficulty: number
+    difficulty: number,
+    userId: number
   ): void {
     name = name.trim();
     details = details.trim();
     created = this.dateConvert;
     difficulty = this.selected;
+    userId = Number(this.selectedUser);
 
     if (!name) {
       return;
     }
     this.todoService
-      .addTodo({ name, details, created, difficulty } as Todo)
+      .addTodo({ name, details, created, difficulty, userId } as Todo)
       .subscribe((todo) => {
         this.todos.push(todo);
       });
