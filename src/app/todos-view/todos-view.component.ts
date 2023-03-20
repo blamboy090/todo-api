@@ -16,9 +16,13 @@ export class TodosViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTodos();
+    const userId = 1
+    this.todoService.getByUser(userId).subscribe((todos) => (this.todos = todos))
+    
   }
 
   getTodos(): void {
-    this.todoService.getTodos().subscribe((todos) => (this.todos = todos));
+    // this.todoService.getTodos().subscribe((todos) => (this.todos = todos));
+    console.log("thingy")
   }
 }

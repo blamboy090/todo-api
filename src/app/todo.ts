@@ -6,6 +6,7 @@ export interface Todo {
   details: string;
   created: string;
   difficulty: number;
+  userId: number;
 }
 
 export interface Difficulty {
