@@ -1,6 +1,13 @@
 <div class="viewAll">
   <button mat-raised-button color="accent" [routerLink]="['/']">Back</button>
   <table mat-table [dataSource]="todos">
+    <!-- userId Column -->
+    <ng-container matColumnDef="userId">
+      <th mat-header-cell *matHeaderCellDef>User Id</th>
+      <td mat-cell *matCellDef="let todo">
+        <a routerLink="/user/{{ todo.userId }}">{{ todo.userId }}</a>
+      </td>
+    </ng-container>
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>

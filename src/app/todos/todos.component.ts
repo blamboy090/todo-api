@@ -13,7 +13,7 @@ export class TodosComponent implements OnInit {
   createdDate = new Date();
   dateConvert = this.createdDate.toISOString();
   selected = 0;
-  selectedUser = 0;
+  selectedUser = 1;
 
   constructor(private todoService: TodoService) {}
 

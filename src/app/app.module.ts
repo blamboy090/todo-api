@@ -19,6 +19,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { TodoEditComponent } from './todo-edit/todo-edit.component';
 import { FormsModule } from '@angular/forms';
+import { UserViewComponent } from './user-view/user-view.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     TodoDetailsComponent,
     TodosViewComponent,
     TodoEditComponent,
+    UserViewComponent,
   ],
   imports: [
     BrowserModule,

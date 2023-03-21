@@ -1,0 +1,6 @@
+<div *ngIf="user">
+  <h2>{{ user.userName }}</h2>
+  <div *ngFor="let todo of user.todoItems">
+    <a routerLink="/detail/{{ todo.id }}">{{ todo.name }}</a>
+  </div>
+</div>
