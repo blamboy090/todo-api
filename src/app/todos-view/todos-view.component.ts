@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../todo.service';
 import { UserService } from '../user.service';
 import { Todo, User } from '../todo';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-todos-view',
@@ -12,16 +13,23 @@ export class TodosViewComponent implements OnInit {
   users: User[] = [];
   todos: Todo[] = [];
   dataSource = this.todos;
-  displayedColumns: string[] = ['userId','name', 'isComplete', 'difficulty', 'created'];
+  displayedColumns: string[] = [
+    'userId',
+    'name',
+    'isComplete',
+    'difficulty',
+    'created',
+  ];
 
   constructor(
     private todoService: TodoService,
-    private userService: UserService
+    private userService: UserService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
     this.getTodos();
-    this.getUsers();
+    //this.getUsers();
     // const userId = 1;
     // this.todoService
     //   .getByUser(userId)
@@ -29,10 +37,14 @@ export class TodosViewComponent implements OnInit {
   }
 
   getTodos(): void {
-    this.todoService.getTodos().subscribe((todos) => (this.todos = todos));    
+    this.todoService.getTodos().subscribe((todos) => (this.todos = todos));
   }
 
   getUsers(): void {
     this.userService.getUsers().subscribe((users) => (this.users = users));
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

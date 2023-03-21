@@ -1,5 +1,5 @@
 <div class="viewAll">
-  <button mat-raised-button color="accent" [routerLink]="['/']">Back</button>
+  <button mat-raised-button color="accent" (click)="goBack()">Go Back</button>
   <table mat-table [dataSource]="todos">
     <!-- userId Column -->
     <ng-container matColumnDef="userId">
