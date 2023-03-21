@@ -27,11 +27,16 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <mat-select [(value)]="selectedUser" required placeholder="User">
-        <mat-option value="1">Annabelle</mat-option>
-        <mat-option value="2">Benjamin</mat-option>
-        <mat-option value="3">Alan</mat-option>
-        <mat-option value="4">Nathan</mat-option>
+      <mat-label>User</mat-label>
+      <mat-select
+        [(ngModel)]="selectedUser"
+        name="user"
+        required
+        placeholder="User"
+      >
+        <mat-option *ngFor="let user of users" [value]="user.id">
+          {{ user.userName }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -53,7 +58,6 @@
         todoDetails.value = '';
         selected = 0;
         selectedUser = 0
-        
       "
     >
       Add

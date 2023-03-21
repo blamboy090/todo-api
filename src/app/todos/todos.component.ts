@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from '../todo';
+import { Todo, User } from '../todo';
 import { TodoService } from '../todo.service';
+import { UserService } from '../user.service';
 import { Difficulty } from '../todo';
 
 @Component({
@@ -10,19 +11,28 @@ import { Difficulty } from '../todo';
 })
 export class TodosComponent implements OnInit {
   todos: Todo[] = [];
+  users: User[] = [];
   createdDate = new Date();
   dateConvert = this.createdDate.toISOString();
   selected = 0;
-  selectedUser = 1;
+  selectedUser = -1;
 
-  constructor(private todoService: TodoService) {}
+  constructor(
+    private todoService: TodoService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
-    this.getTodos();
+    // this.getTodos();
+    this.getUsers();
   }
 
   getTodos(): void {
     this.todoService.getTodos().subscribe((todos) => (this.todos = todos));
+  }
+
+  getUsers(): void {
+    this.userService.getUsers().subscribe((users) => (this.users = users));
   }
 
   add(
