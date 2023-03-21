@@ -13,3 +13,9 @@ export interface Difficulty {
   value: number;
   viewValue: string;
 }
+
+export interface User {
+  id: number;
+  userName: string;
+  todoItems: Todo[];
+}

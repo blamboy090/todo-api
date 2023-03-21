@@ -1,0 +1,34 @@
+<div class="viewAll">
+  <button mat-raised-button color="accent" type="button" (click)="goBack()">
+    Go Back
+  </button>
+  <table mat-table [dataSource]="users">
+    <!-- userName Column -->
+    <ng-container matColumnDef="userName">
+      <th mat-header-cell *matHeaderCellDef>User Name</th>
+      <td mat-cell *matCellDef="let user">
+        <a routerLink="/user/{{ user.id }}">{{ user.userName }}</a>
+      </td>
+    </ng-container>
+    <!-- totalTodos Column -->
+    <ng-container matColumnDef="totalTodos">
+      <th mat-header-cell *matHeaderCellDef>Total Todos</th>
+      <td mat-cell *matCellDef="let user">
+        {{ user.todoItems.length }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<!-- <button mat-raised-button color="accent" type="button" (click)="goBack()">
+    Go Back
+  </button>
+<div *ngFor="let user of users">
+  <p>
+    <a routerLink="/user/{{ user.id }}">{{ user.userName }}</a>
+  </p>
+  <p>Total Todos: {{ user.todoItems.length }}</p>
+</div> -->
