@@ -2,6 +2,7 @@
   <div class="details" *ngIf="todo">
     <mat-card-header>
       <h2>{{ todo.name | uppercase }}</h2>
+     
     </mat-card-header>
     <mat-card-content>
       <p>Details: {{ todo.details }}</p>
@@ -20,7 +21,6 @@
         title="delete todo"
         routerLink="/view"
         (click)="delete(todo)"
-        
       >
         Delete
       </button>
