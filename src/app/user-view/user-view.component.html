@@ -1,6 +1,12 @@
-<div *ngIf="user">
-  <h2>{{ user.userName }}</h2>
-  <div *ngFor="let todo of user.todoItems">
-    <a routerLink="/detail/{{ todo.id }}">{{ todo.name }}</a>
+<mat-card class="card">
+  <div class="details" *ngIf="user">
+    <mat-card-header>
+      <h2>{{ user.userName }}</h2>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngFor="let todo of user.todoItems">
+        <a routerLink="/detail/{{ todo.id }}">{{ todo.name }}</a>
+      </div>
+    </mat-card-content>
   </div>
-</div>
+</mat-card>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Todo, User } from '../todo';
 import { TodoService } from '../todo.service';
 import { UserService } from '../user.service';
@@ -10,6 +10,8 @@ import { Difficulty } from '../todo';
   styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent implements OnInit {
+  @Output() todosUpdated = new EventEmitter<Todo>();
+
   todos: Todo[] = [];
   users: User[] = [];
   createdDate = new Date();
@@ -60,6 +62,6 @@ export class TodosComponent implements OnInit {
 
   delete(todo: Todo): void {
     this.todos = this.todos.filter((t) => t !== todo);
-    this.todoService.deleteTodo(todo.id).subscribe();
+    this.todoService.deleteTodo(todo.id).subscribe((todo: Todo) => this.todosUpdated.emit(todo));
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TodoService } from '../todo.service';
 import { UserService } from '../user.service';
 import { Todo, User } from '../todo';
@@ -10,6 +10,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./todos-view.component.scss'],
 })
 export class TodosViewComponent implements OnInit {
+  @Output() todosUpdated = new EventEmitter<Todo>();
   users: User[] = [];
   todos: Todo[] = [];
   dataSource = this.todos;

@@ -23,7 +23,8 @@
         placeholder="{{ todo.difficulty }}"
         ><mat-option value="1">Mild </mat-option>
         <mat-option value="2">Spicy</mat-option>
-        <mat-option value="3">Inferno</mat-option>
+        <mat-option value="3">Fire</mat-option>
+        <mat-option value="4">Diablo</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -35,8 +36,7 @@
     <button
       mat-raised-button
       (click)="update(todo)"
-      (click)="goBack()"
-      *ngIf="todo.id"
+      routerLink="/detail/{{ todo.id }}"
     >
       Update
     </button>
