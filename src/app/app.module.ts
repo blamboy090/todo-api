@@ -5,7 +5,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
-import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
@@ -17,18 +16,17 @@ import { TodosViewComponent } from './todos-view/todos-view.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
-import { TodoEditComponent } from './todo-edit/todo-edit.component';
 import { FormsModule } from '@angular/forms';
 import { UserViewComponent } from './user-view/user-view.component';
 import { UsersComponent } from './users/users.component';
+import { TodosModule } from './todos/todos.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodosComponent,
-    TodoDetailsComponent,
     TodosViewComponent,
-    TodoEditComponent,
+
     UserViewComponent,
     UsersComponent,
   ],
@@ -46,7 +44,8 @@ import { UsersComponent } from './users/users.component';
     MatDatepickerModule,
     MatSelectModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    TodosModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TodoService } from '../todo.service';
+import { TodoService } from '../../todo.service';
 import { tap } from 'rxjs';
-import { Todo } from '../todo';
+import { Todo } from '../../todo';
 import { Location } from '@angular/common';
 
 @Component({

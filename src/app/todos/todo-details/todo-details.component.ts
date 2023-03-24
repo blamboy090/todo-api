@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TodoService } from '../todo.service';
-import { Todo } from '../todo';
+import { TodoService } from '../../todo.service';
+import { Todo } from '../../todo';
 import { Location } from '@angular/common';
 import { tap } from 'rxjs';
 @Component({
