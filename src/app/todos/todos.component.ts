@@ -1,8 +1,9 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter,OnInit, Output } from '@angular/core';
+
 import { Todo, User } from '../todo';
+import { Difficulty } from '../todo';
 import { TodoService } from '../todo.service';
 import { UserService } from '../user.service';
-import { Difficulty } from '../todo';
 
 @Component({
   selector: 'app-todos',

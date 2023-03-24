@@ -1,9 +1,10 @@
+import { Location } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TodoService } from '../../todo.service';
-import { Todo } from '../../todo';
-import { Location } from '@angular/common';
 import { tap } from 'rxjs';
+
+import { Todo } from '../../todo';
+import { TodoService } from '../../todo.service';
 @Component({
   selector: 'app-todo-details',
   templateUrl: './todo-details.component.html',

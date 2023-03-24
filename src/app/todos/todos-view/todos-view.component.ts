@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TodoService } from '../todo.service';
-import { UserService } from '../user.service';
-import { Todo, User } from '../todo';
 import { Location } from '@angular/common';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
+import { Todo, User } from '../../todo';
+import { TodoService } from '../../todo.service';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-todos-view',
